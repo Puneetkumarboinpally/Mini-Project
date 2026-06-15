@@ -2,6 +2,7 @@ const textAreaInput = document.querySelector(".text-input");
 const charCount = document.querySelector(".char-count");
 const wordCount = document.querySelector(".word-count");
 const warning = document.querySelector(".warning");
+const submitBtn = document.querySelector(".submit-btn");
 
 textAreaInput.addEventListener("input", () => {
   const text = textAreaInput.value;
@@ -14,7 +15,7 @@ textAreaInput.addEventListener("input", () => {
 
   if (char < 160) {
     warning.style.display = "none";
-  } else if (char < 200) {
+  } else if (char < 199) {
     warning.style.display = "block";
     warning.style.backgroundColor = "orange";
     warning.innerHTML = "Warning: You are close to the limit.";
@@ -23,4 +24,6 @@ textAreaInput.addEventListener("input", () => {
     warning.style.backgroundColor = "red";
     warning.innerHTML = "Warning: You have reached the limit.";
   }
+
+  submitBtn.disabled = char === 0 || char > 200;
 });
