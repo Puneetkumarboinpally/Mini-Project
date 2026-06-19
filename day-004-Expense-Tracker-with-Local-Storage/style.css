@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Form */
+
+.expense-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.expense-form input,
+.expense-form select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.expense-form button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.expense-form button:hover {
+  background: #43a047;
+}
+
+/* Summary */
+
+.summary {
+  text-align: center;
+  background: #e8f5e9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.summary h2 {
+  color: #2e7d32;
+}
+
+.summary p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Expense List */
+
+.expense-list-container h2 {
+  margin-bottom: 15px;
+}
+
+#expenseList {
+  list-style: none;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #4caf50;
+}
+
+.expense-details {
+  flex: 1;
+}
+
+.expense-details h3 {
+  color: #333;
+}
+
+.expense-details p {
+  color: #666;
+  margin-top: 5px;
+}
+
+.delete-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .delete-btn {
+    width: 100%;
+  }
+}
