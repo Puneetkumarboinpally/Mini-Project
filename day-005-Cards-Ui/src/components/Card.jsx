@@ -1,13 +1,18 @@
-import React from "react";
 import Top from "./Section/Top";
-import Center from "./Section/center";
+import Center from "./Section/Center";
 import Bottom from "./Section/Bottom";
-const Card = () => {
+const Card = ({ logo, company, date, post, tag1, tag2, pay, location }) => {
   return (
-    <div className="p-10 bg-blue-300">
-      <Top />
-      <Center />
-      <Bottom />
+    <div className="flex flex-col justify-between bg-white rounded-xl p-4">
+      <Top logo={logo} />
+      <Center
+        company={company}
+        post={post}
+        date={date}
+        tag1={tag1}
+        tag2={tag2}
+      />
+      <Bottom pay={pay} location={location} />
     </div>
   );
 };
