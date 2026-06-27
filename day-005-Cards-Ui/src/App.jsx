@@ -47,7 +47,7 @@ const App = () => {
     },
     {
       brandLogo:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png",
+        "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
       companyName: "Google",
       datePosted: "1 week ago",
       post: "Cloud Solutions Architect",
@@ -124,7 +124,7 @@ const App = () => {
     },
     {
       brandLogo:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+        "https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg",
       companyName: "Amazon",
       datePosted: "5 days ago",
       post: "Software Development Engineer",
@@ -135,7 +135,7 @@ const App = () => {
     },
   ];
   return (
-    <div className="h-screen bg-black grid grid-cols-4 gap-6 p-8">
+    <div className="bg-black p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
       {jobOpenings.map((elem, idx) => (
         <Card
           key={idx}
