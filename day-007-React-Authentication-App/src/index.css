@@ -3,7 +3,7 @@
 @theme {
   /* ☀️ Light Mode */
 
-  --color-background: #faf9fc; /* Page background */
+  --color-background: oklch(70.4% 0.191 22.216); /* Page background */
   --color-surface: #ffffff; /* Cards, modals, containers */
   --color-secondary: #f1ecf8; /* Secondary sections */
   --color-text: #1c1b20; /* Main text */
