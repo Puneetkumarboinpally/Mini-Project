@@ -1,7 +1,18 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Navbar from "./components/Navbar";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="bg-red-500">MY Authentication App</h1>
+    <div className="h-screen bg-background transition-color duration-600">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </div>
   );
 };
