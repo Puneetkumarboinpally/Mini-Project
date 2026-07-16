@@ -14,8 +14,8 @@ const Navbar = () => {
   }, [theme]);
   return (
     <div>
-      <div className="flex justify-between items-center px-8 h-16">
-        <h1 className="heading">My Auth App</h1>
+      <div className="flex justify-between items-center p-4">
+        <h1 className="heading text-xl">My Auth App</h1>
         <div className="flex gap-6">
           <NavLink className="navlink" to={"/"}>
             Home

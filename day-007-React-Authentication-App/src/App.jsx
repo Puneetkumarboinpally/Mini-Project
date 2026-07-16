@@ -6,13 +6,15 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="h-screen bg-background transition-color duration-600">
+    <div className="min-h-screen bg-background transition-colors duration-500">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
+      <main className="min-h-[calc(100vh-80px)]">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </main>
     </div>
   );
 };
