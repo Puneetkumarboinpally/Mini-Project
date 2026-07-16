@@ -1,10 +1,21 @@
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 const login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="flex justify-center items-center p-8">
       <div className="cardStyles">
         <h1 className="heading">Login</h1>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="formGroupStyles">
             <label className="labelStyles" htmlFor="email">
               Email
@@ -12,6 +23,9 @@ const login = () => {
             <input
               className="inputStyles"
               type="email"
+              {...register("email", {
+                required: "email is required",
+              })}
               placeholder="Enter your email here..."
             />
           </div>
