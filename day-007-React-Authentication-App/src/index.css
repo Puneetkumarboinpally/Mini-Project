@@ -22,13 +22,35 @@
   --color-accent: #c4a7ff; /* Lilac highlight */
 }
 
+.cardStyles {
+  @apply w-full max-w-md p-8 border-2 bg-white/10
+  backdrop-blur-xl rounded-2xl shadow-xl border-white/20;
+}
 .heading {
-  @apply text-xl text-text font-bold;
+  @apply text-4xl font-bold text-text mb-6;
 }
 .navlink {
-  @apply text-text font-semibold border py-1 px-2 
+  @apply text-text font-semibold border py-2 px-4 
   rounded shadow-lg cursor-pointer
   transition-all duration-300
   active:scale-95 
   hover:translate-y-[-3px];
+}
+.formGroupStyles {
+  @apply flex flex-col mb-4;
+}
+.labelStyles {
+  @apply text-text text-lg mb-1 font-bold;
+}
+.inputStyles {
+  @apply border-[2px] border-border bg-transparent p-2 rounded text-text 
+  outline-none focus:ring focus:ring-accent focus:border-accent;
+}
+.buttonStyles {
+  @apply my-2 py-2 px-6 rounded-lg text-lg font-bold text-text 
+          bg-accent cursor-pointer active:scale-95
+          transition-all duration-200 hover:translate-y-[-4px];
+}
+.errorStyles {
+  @apply p-1 text-red-500 font-semibold capitalize;
 }
