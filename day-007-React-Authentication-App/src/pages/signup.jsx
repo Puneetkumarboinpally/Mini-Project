@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import AuthDataContext from "../context/AuthContext";
 
 const Signup = () => {
+  const  Signup  = useContext(AuthDataContext);
   const {
     register,
     reset,
@@ -11,7 +14,7 @@ const Signup = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
-    console.log(data);
+    Signup(data.email, data.password);
     reset();
   };
 
