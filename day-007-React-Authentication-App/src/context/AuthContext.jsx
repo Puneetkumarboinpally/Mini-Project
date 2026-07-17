@@ -3,9 +3,9 @@ import { createContext, useState } from "react";
 const AuthDataContext = createContext(null);
 
 export const AuthContext = ({ children }) => {
-  const CurrentUserName = localStorage.getItem("CurrentUserName");
+  const CurrentUserEmail = localStorage.getItem("CurrentUserEmail");
   const [user, setUser] = useState(
-    CurrentUserName ? { name: CurrentUserName } : null,
+    CurrentUserEmail ? { email: CurrentUserEmail } : null,
   );
 
   const signUp = (email, password, name, number) => {
@@ -29,7 +29,7 @@ export const AuthContext = ({ children }) => {
     users.push(newUser);
 
     localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("CurrentUserName", name);
+    localStorage.setItem("CurrentUserEmail", email);
 
     setUser(newUser);
 
@@ -39,16 +39,24 @@ export const AuthContext = ({ children }) => {
 
   const login = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
+    const existingUser = users.find((u) => u.email === email);
     const oldUser = users.find(
       (user) => user.email === email && user.password === password,
     );
+    if (!existingUser) {
+      return {
+        success: false,
+        message: "email not found please signup...",
+      };
+    }
     if (!oldUser) {
       return {
         success: false,
         message: "Invalid Email or Password",
       };
     }
-    localStorage.setItem("CurrentUserEmail", user.email);
+
+    localStorage.setItem("CurrentUserEmail", email);
     setUser(oldUser);
     return {
       success: true,
