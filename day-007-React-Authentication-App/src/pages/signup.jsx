@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthDataContext from "../context/AuthContext";
 
 const Signup = () => {
-  const  Signup  = useContext(AuthDataContext);
+  const { signUp } = useContext(AuthDataContext);
+  const navigate = useNavigate();
   const {
     register,
     reset,
@@ -14,15 +15,27 @@ const Signup = () => {
   } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
-    Signup(data.email, data.password);
+    const result = signUp(data.email, data.password, data.name, data.number);
+
+    if (!result.success) {
+      alert(result.message);
+      return;
+    }
     reset();
+    navigate("/");
   };
 
   return (
     <div className="flex justify-center p-12">
+      {/* card container */}
+
       <div className="cardStyles">
         <h1 className="heading mb-6">Signup</h1>
+        {/* form section */}
+
         <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Name section */}
+
           <div className="formGroupStyles">
             <label className="labelStyles" htmlFor="name">
               Full Name
@@ -40,6 +53,8 @@ const Signup = () => {
               <p className="errorStyles">{errors.name.message}</p>
             )}
           </div>
+          {/* Email section */}
+
           <div className="formGroupStyles">
             <label className="labelStyles" htmlFor="email">
               Email
@@ -61,6 +76,8 @@ const Signup = () => {
               <p className="errorStyles">{errors.email.message}</p>
             )}
           </div>
+          {/* password section */}
+
           <div className="formGroupStyles">
             <label className="labelStyles" htmlFor="password">
               Password
@@ -84,6 +101,8 @@ const Signup = () => {
               <p className="errorStyles">{errors.password.message}</p>
             )}
           </div>
+          {/* Repeat password section */}
+
           <div className="formGroupStyles">
             <label className="labelStyles" htmlFor="repeatPassword">
               Repeat Password
@@ -104,6 +123,8 @@ const Signup = () => {
               <p className="errorStyles">{errors.repeatPassword.message}</p>
             )}
           </div>
+          {/* number section */}
+
           <div className="formGroupStyles">
             <label className="labelStyles" htmlFor="number">
               Mobile Number
@@ -125,7 +146,10 @@ const Signup = () => {
               <p className="errorStyles">{errors.number.message}</p>
             )}
           </div>
-          <button className="buttonStyles">signup</button>
+          {/* SIGNUP BUTTON SECTION */}
+          <button className="buttonStyles" type="submit">
+            signup
+          </button>
           <p className="text-text font-semibold text-lg">
             Already have an account?{" "}
             <Link
