@@ -35,10 +35,27 @@ export const AuthContext = ({ children }) => {
 
     return { success: true };
   };
+  //   LOGIN FUNCTIONALITY
 
-  const login = () => {
-    console.log("login");
+  const login = (email, password) => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const oldUser = users.find(
+      (user) => user.email === email && user.password === password,
+    );
+    if (!oldUser) {
+      return {
+        success: false,
+        message: "Invalid Email or Password",
+      };
+    }
+    localStorage.setItem("CurrentUserEmail", user.email);
+    setUser(oldUser);
+    return {
+      success: true,
+    };
   };
+  //   LOGOUT FUNCTIONALITY
+
   const logout = () => {
     localStorage.removeItem("CurrentUserName");
     setUser(null);
