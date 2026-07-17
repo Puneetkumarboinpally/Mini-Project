@@ -1,23 +1,86 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export const AuthDataContext = createContext(null);
+const AuthDataContext = createContext(null);
 
 export const AuthContext = ({ children }) => {
-  const signup = (email, password, name, number) => {
-    const user = [];
+  const CurrentUserEmail = localStorage.getItem("CurrentUserEmail");
+  const [user, setUser] = useState(
+    CurrentUserEmail ? { email: CurrentUserEmail } : null,
+  );
 
-    const newUser = { email, password, name, number };
-    return user.push(newUser);
+  const signUp = (email, password, name, number) => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const oldUser = users.find((user) => user.email === email);
+
+    if (oldUser) {
+      return {
+        success: false,
+        message: "Email already exists",
+      };
+    }
+    const newUser = {
+      email,
+      password,
+      name,
+      number,
+    };
+
+    users.push(newUser);
+
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("CurrentUserEmail", email);
+
+    setUser(newUser);
+
+    return { success: true };
   };
-  const login = () => {};
-  const logout = () => {};
+  //   LOGIN FUNCTIONALITY
+
+  const login = (email, password) => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const existingUser = users.find((u) => u.email === email);
+    const oldUser = users.find(
+      (user) => user.email === email && user.password === password,
+    );
+    if (!existingUser) {
+      return {
+        success: false,
+        message: "email not found please signup...",
+      };
+    }
+    if (!oldUser) {
+      return {
+        success: false,
+        message: "Invalid Email or Password",
+      };
+    }
+
+    localStorage.setItem("CurrentUserEmail", email);
+    setUser(oldUser);
+    return {
+      success: true,
+    };
+  };
+  //   LOGOUT FUNCTIONALITY
+
+  const logout = () => {
+    localStorage.removeItem("CurrentUserName");
+    setUser(null);
+  };
+
   return (
-    <div>
-      <AuthDataContext.Provider value={{ signup, login, logout }}>
-        {children}
-      </AuthDataContext.Provider>
-    </div>
+    <AuthDataContext.Provider
+      value={{
+        user,
+        signUp,
+        login,
+        logout,
+      }}
+    >
+      {children}
+    </AuthDataContext.Provider>
   );
 };
 
-export default AuthContext;
+export default AuthDataContext;

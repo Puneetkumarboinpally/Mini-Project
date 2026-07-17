@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
+import AuthDataContext from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user } = useContext(AuthDataContext);
+
   const [theme, setTheme] = useState(() => {
     const stored = localStorage.getItem("theme");
     return stored ? JSON.parse(stored) : false;
@@ -20,12 +23,20 @@ const Navbar = () => {
           <NavLink className="navlink" to={"/"}>
             Home
           </NavLink>
-          <NavLink className="navlink" to={"/login"}>
-            Login
-          </NavLink>
-          <NavLink className="navlink" to={"/signup"}>
-            Signup
-          </NavLink>
+          {user ? (
+            <span className="flex items-center text-accent text-lg font-bold">
+              {user.name}
+            </span>
+          ) : (
+            <>
+              <NavLink className="navlink" to={"/login"}>
+                Login
+              </NavLink>
+              <NavLink className="navlink" to={"/signup"}>
+                Signup
+              </NavLink>
+            </>
+          )}
         </div>
         <button
           className="p-2 border rounded-full cursor-pointer justify-center items-center text-text transition-transform duration-500 active:rotate-180"
