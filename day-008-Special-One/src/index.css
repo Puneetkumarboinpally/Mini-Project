@@ -1,5 +1,38 @@
 @import "tailwindcss";
 body {
-  background-color: #670626;
-  /* background-color: #ffbdc5; */
+  background-color: var(--primary);
+}
+:root {
+  --primary: #670626;
+  --secondary: #ffbdc5;
+}
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+}
+.emoji {
+  font-size: 1rem;
+  display: inline-block;
+  animation: rotate-animate 1s ease-out infinite;
+}
+@keyframes rotate-animate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.spin {
+  display: inline-block;
+  animation: spin-animate 1.2s ease-out infinite;
+  transform-origin: center;
+}
+@keyframes spin-animate {
+  to {
+    transform: rotate(360deg);
+  }
 }
