@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import FirstPage from "./pages/FirstPage.tsx";
 import SecondPage from "./pages/SecondPage.tsx";
 import ThirdPage from "./pages/ThirdPage.tsx";
+import FifthPage from "./pages/FifthPage.tsx";
+import FourthPage from "./pages/FourthPage.tsx";
 const App = () => {
   return (
     <div>
@@ -9,6 +11,8 @@ const App = () => {
         <Route path="/" element={<FirstPage />} />
         <Route path="/secondPage" element={<SecondPage />} />
         <Route path="/thirdPage" element={<ThirdPage />} />
+        <Route path="/fourthPage" element={<FourthPage />} />
+        <Route path="/fifthPage" element={<FifthPage />} />
       </Routes>
     </div>
   );
