@@ -81,7 +81,7 @@ body {
   @apply min-h-screen flex justify-center items-center p-4;
 }
 .card {
-  @apply p-6 bg-secondary rounded-lg shadow-lg;
+  @apply p-8 bg-secondary rounded-lg shadow-lg;
 }
 .btn {
   @apply py-2 px-4 rounded font-bold text-lg  shadow-lg;
