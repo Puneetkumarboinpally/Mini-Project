@@ -15,6 +15,11 @@ body {
   display: inline-block;
   animation: rotate-animate 1s ease-out infinite;
 }
+.emoji2 {
+  font-size: 3rem;
+  display: inline-block;
+  animation: rotate-animate 1s ease-out infinite;
+}
 @keyframes rotate-animate {
   0% {
     transform: scale(1);
@@ -35,4 +40,49 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+.car {
+  font-size: 3rem;
+  animation: move-animate 3s linear infinite alternate-reverse;
+}
+/* @media (max-width: 786px) {
+} */
+
+@keyframes move-animate {
+  from {
+    transform: translateX(0px) scaleX(-1);
+  }
+  to {
+    transform: translateX(250px) scaleX(-1);
+  }
+}
+@media (max-width: 425px) {
+  @keyframes move-animate {
+    from {
+      transform: translateX(0) scaleX(-1);
+    }
+    to {
+      transform: translateX(340%) scaleX(-1);
+    }
+  }
+}
+@media (max-width: 375px) {
+  @keyframes move-animate {
+    from {
+      transform: translateX(0) scaleX(-1);
+    }
+    to {
+      transform: translateX(260%) scaleX(-1);
+    }
+  }
+}
+
+.center {
+  @apply min-h-screen flex justify-center items-center p-4;
+}
+.card {
+  @apply p-8 bg-secondary rounded-lg shadow-lg;
+}
+.btn {
+  @apply py-2 px-4 rounded font-bold text-lg  shadow-lg;
 }
