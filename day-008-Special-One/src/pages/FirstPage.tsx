@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 const FirstPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen flex justify-center items-center p-4">
-      <div className="p-6 bg-secondary rounded-lg shadow-lg sm:flex gap-2 ">
+    <div className="center">
+      <div className="card">
         <div className="flex justify-center">
           <img
             src="https://images.unsplash.com/photo-1638310549061-6867875fc2aa?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

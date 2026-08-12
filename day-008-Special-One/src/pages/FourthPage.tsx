@@ -42,8 +42,8 @@ const foods: Food[] = [
 const FourthPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="h-screen flex justify-center items-center p-4">
-      <div className="bg-secondary p-6 rounded-lg">
+    <div className="center">
+      <div className="card">
         <h1 className="text-2xl font-bold text-center">
           What are we Feeling?🍽️✨
         </h1>

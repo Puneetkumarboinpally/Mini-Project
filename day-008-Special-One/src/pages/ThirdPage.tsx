@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 const ThirdPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="h-screen flex justify-center items-center p-4">
-      <div className="w-full max-w-sm bg-secondary p-6 rounded-lg shadow-lg flex flex-col gap-2">
+    <div className="center">
+      <div className="card flex flex-col gap-2">
         <span className="flex justify-center">
           <img
             src="https://images.unsplash.com/photo-1609082460168-e85958ece3f7?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDcxfHx8ZW58MHx8fHx8"

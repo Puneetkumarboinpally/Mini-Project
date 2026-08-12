@@ -13,8 +13,8 @@ const SecondPage = () => {
     });
   }, []);
   return (
-    <div className="h-screen flex justify-center items-center p-4">
-      <div className="bg-secondary p-6 rounded-lg shadow-lg text-center sm:flex gap-2">
+    <div className="center">
+      <div className="card text-center sm:flex gap-2">
         <div className="flex justify-center">
           <img
             className="h-30 w-30 object-cover object-top rounded-full"
