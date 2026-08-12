@@ -69,6 +69,7 @@ const ThirdPage = () => {
             </select>
           </div>
           <button
+            type="button"
             onClick={() => navigate("/fourthPage")}
             className="py-2 px-6 mt-2 font-bold rounded-full active:scale-95 
           cursor-pointer shadow-md text-lg bg-primary text-secondary transition-all duration-300
